@@ -1,0 +1,220 @@
+/* ============================================================
+   RIGHT CHOICE CLEANING — GLOBAL DESIGN SYSTEM
+   Color Palette inspired by rightchoicecleaning.ca
+   ============================================================ */
+
+:root {
+  /* === BRAND COLORS === */
+  --gold:          #C9A84C;
+  --gold-light:    #E8C96A;
+  --gold-dark:     #A07830;
+  --gold-pale:     #F5E8C0;
+  --navy:          #0B1F3A;
+  --navy-mid:      #122848;
+  --navy-light:    #1E3A5F;
+  --white:         #FFFFFF;
+  --off-white:     #F9F7F2;
+  --gray-100:      #F4F2ED;
+  --gray-200:      #E8E4DC;
+  --gray-400:      #9A9280;
+  --gray-600:      #5A5248;
+  --dark:          #0A0A0A;
+
+  /* === TYPOGRAPHY === */
+  --font-heading:  'Outfit', sans-serif;
+  --font-body:     'Inter', sans-serif;
+
+  /* === SPACING === */
+  --section-pad:   6rem 1.5rem;
+  --section-pad-sm:3rem 1.5rem;
+
+  /* === SHADOWS === */
+  --shadow-sm:     0 2px 12px rgba(0,0,0,0.08);
+  --shadow-md:     0 8px 32px rgba(0,0,0,0.14);
+  --shadow-lg:     0 20px 60px rgba(0,0,0,0.22);
+  --shadow-gold:   0 8px 32px rgba(201,168,76,0.30);
+
+  /* === BORDER RADIUS === */
+  --radius-sm:     6px;
+  --radius-md:     12px;
+  --radius-lg:     20px;
+  --radius-xl:     32px;
+  --radius-full:   9999px;
+
+  /* === TRANSITIONS === */
+  --ease:          cubic-bezier(0.4, 0, 0.2, 1);
+  --transition:    0.3s var(--ease);
+}
+
+/* === RESET === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--navy);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; outline: none; font-family: var(--font-heading); }
+
+/* === TYPOGRAPHY === */
+h1,h2,h3,h4,h5 { font-family: var(--font-heading); line-height: 1.15; font-weight: 700; }
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+p  { font-size: 1rem; color: var(--gray-600); }
+
+/* === UTILITY CLASSES === */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.section-label {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+.section-title span { color: var(--gold); }
+.section-sub {
+  font-size: 1.05rem;
+  color: var(--gray-600);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* === BUTTONS === */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--navy);
+  box-shadow: var(--shadow-gold);
+}
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.btn-gold:hover::before { opacity: 1; }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.45); }
+.btn-gold span, .btn-gold i { position: relative; z-index: 1; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.5);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+
+.btn-navy {
+  background: var(--navy);
+  color: var(--white);
+}
+.btn-navy:hover {
+  background: var(--navy-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* === CARDS === */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition);
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  border-color: var(--gold-pale);
+}
+
+/* === GRADIENT BACKGROUNDS === */
+.bg-navy { background: var(--navy); }
+.bg-gold-gradient { background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light)); }
+.bg-navy-gradient { background: linear-gradient(135deg, var(--dark), var(--navy), var(--navy-mid)); }
+.bg-off-white { background: var(--off-white); }
+
+/* === SECTION DIVIDER === */
+.wave-divider { width: 100%; overflow: hidden; line-height: 0; }
+.wave-divider svg { display: block; width: 100%; }
+
+/* === SCROLL ANIMATIONS === */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up-delay-1 { transition-delay: 0.1s; }
+.fade-up-delay-2 { transition-delay: 0.2s; }
+.fade-up-delay-3 { transition-delay: 0.3s; }
+.fade-up-delay-4 { transition-delay: 0.4s; }
+
+/* === GOLD ACCENT LINE === */
+.gold-line {
+  width: 60px; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: var(--radius-full);
+  margin: 0.75rem auto 1.5rem;
+}
+.gold-line.left { margin-left: 0; }
+
+/* === BADGE === */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold-dark);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+}
+
+/* === STAR RATING === */
+.stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; }
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--off-white); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* === RESPONSIVE HELPERS === */
+@media (max-width: 768px) {
+  :root { --section-pad: 4rem 1rem; }
+}

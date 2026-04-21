@@ -1,0 +1,58 @@
+.services-section { padding: var(--section-pad); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+.service-card {
+  padding: 2rem 1.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.service-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy);
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+.service-icon-wrap { margin-bottom: 0.5rem; }
+.service-icon {
+  width: 60px; height: 60px;
+  background: linear-gradient(135deg, var(--gold-pale), rgba(201,168,76,0.15));
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  color: var(--gold-dark);
+  transition: all var(--transition);
+}
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy);
+  transform: rotate(-5deg) scale(1.05);
+}
+.service-card h3 { color: var(--navy); margin-bottom: 0.25rem; }
+.service-card p { font-size: 0.9rem; flex-grow: 1; }
+.service-features {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  margin: 0.5rem 0;
+}
+.service-features li {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.87rem;
+  color: var(--gray-600);
+  font-family: var(--font-body);
+}
+.service-features i { color: var(--gold); font-size: 0.75rem; }
+.service-btn {
+  margin-top: auto;
+  justify-content: center;
+}
